@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inclusive Minds — Special Needs Tutoring, Houghton, Johannesburg</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600;700&display=swap');
+
+  :root{
+    --paper:#EEF0E7;
+    --paper-2:#E4E9DC;
+    --pine:#1E3A34;
+    --pine-soft:#2C4B44;
+    --ochre:#B98B2E;
+    --slate-blue:#5C7A99;
+    --ink:#2B2A26;
+    --ink-soft:#5A584F;
+    --white:#FBFAF6;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    color:var(--pine);
+    line-height:1.15;
+  }
+
+  .wrap{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    padding:28px 0 0;
+  }
+  .nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces', serif;
+    font-size:1.25rem;
+    color:var(--pine);
+  }
+  .brand svg{width:30px; height:30px;}
+  nav.links{display:flex; gap:28px; font-size:0.95rem;}
+  nav.links a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .2s;}
+  nav.links a:hover{border-color:var(--ochre); color:var(--pine);}
+  .nav-cta{
+    background:var(--pine);
+    color:var(--white);
+    padding:10px 20px;
+    border-radius:100px;
+    text-decoration:none;
+    font-size:0.9rem;
+    font-weight:600;
+    white-space:nowrap;
+  }
+  @media(max-width:720px){
+    nav.links{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:70px 0 90px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:50px;
+    align-items:center;
+  }
+  @media(max-width:820px){
+    .hero{grid-template-columns:1fr; padding:44px 0 60px;}
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 5vw, 3.4rem);
+    letter-spacing:-0.01em;
+    max-width:12ch;
+  }
+  .hero .lede{
+    margin-top:22px;
+    font-size:1.1rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+  }
+  .hero .actions{
+    margin-top:34px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--ochre);
+    color:var(--white);
+    padding:14px 26px;
+    border-radius:100px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:0.98rem;
+  }
+  .btn-secondary{
+    border:1.5px solid var(--pine-soft);
+    color:var(--pine);
+    padding:13px 26px;
+    border-radius:100px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.98rem;
+  }
+  .hero-mark{
+    position:relative;
+    aspect-ratio:1/1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-mark svg{width:100%; height:100%;}
+
+  .tagline-strip{
+    margin-top:56px;
+    padding-top:28px;
+    border-top:1px solid rgba(30,58,52,0.14);
+    display:flex;
+    gap:36px;
+    flex-wrap:wrap;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+  .tagline-strip span{display:flex; align-items:center; gap:8px;}
+  .dot{width:6px; height:6px; border-radius:50%; background:var(--ochre); display:inline-block;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:64px 0;}
+  .section-head{
+    max-width:62ch;
+    margin-bottom:42px;
+  }
+  .section-head h2{
+    font-size:clamp(1.7rem, 3vw, 2.2rem);
+  }
+  .section-head p{
+    margin-top:14px;
+    color:var(--ink-soft);
+    font-size:1.05rem;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    background:var(--paper-2);
+    border-radius:28px;
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:50px;
+    align-items:start;
+  }
+  @media(max-width:820px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+  .about-grid p + p{margin-top:16px;}
+  .credentials{
+    margin-top:26px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .credentials li{
+    list-style:none;
+    display:flex;
+    gap:10px;
+    font-size:0.95rem;
+    color:var(--ink-soft);
+  }
+  .credentials li::before{
+    content:'';
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--slate-blue);
+    margin-top:9px;
+    flex-shrink:0;
+  }
+  .photo-slot{
+    background:var(--white);
+    border-radius:20px;
+    padding:26px;
+    border:1px solid rgba(30,58,52,0.1);
+  }
+  .photo-slot .frame{
+    aspect-ratio:4/5;
+    background:linear-gradient(160deg, #E4E9DC, #D7E0CE);
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ink-soft);
+    font-size:0.9rem;
+    text-align:center;
+    padding:20px;
+  }
+  .photo-slot .caption{
+    margin-top:16px;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- SPECIALISATIONS ---------- */
+  .spec-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  @media(max-width:900px){ .spec-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:520px){ .spec-grid{grid-template-columns:1fr;} }
+  .spec-card{
+    background:var(--white);
+    border-radius:18px;
+    padding:26px 22px;
+    border:1px solid rgba(30,58,52,0.09);
+  }
+  .spec-card .mark{
+    width:38px; height:38px;
+    margin-bottom:16px;
+  }
+  .spec-card h3{
+    font-size:1.05rem;
+    margin-bottom:8px;
+  }
+  .spec-card p{
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+  .spec-tag{
+    display:inline-block;
+    margin-top:12px;
+    font-size:0.78rem;
+    color:var(--pine);
+    background:var(--paper-2);
+    padding:4px 10px;
+    border-radius:100px;
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+  }
+  @media(max-width:820px){ .testimonials{grid-template-columns:1fr;} }
+  .testimonial-card{
+    background:var(--white);
+    border-radius:18px;
+    padding:26px 24px;
+    border:1px solid rgba(30,58,52,0.09);
+    display:flex;
+    flex-direction:column;
+  }
+  .testimonial-card svg{width:24px; height:24px; margin-bottom:14px;}
+  .testimonial-card p.quote{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    color:var(--pine);
+    flex-grow:1;
+  }
+  .testimonial-card .attrib{
+    margin-top:16px;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  @media(max-width:820px){ .services{grid-template-columns:1fr;} }
+  .service-card h3{
+    font-size:1.15rem;
+    margin-bottom:10px;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .service-card .num{
+    font-family:'Fraunces', serif;
+    color:var(--ochre);
+    font-size:1rem;
+  }
+  .service-card p{
+    color:var(--ink-soft);
+    font-size:0.96rem;
+  }
+  .service-card{
+    padding-top:22px;
+    border-top:2px solid var(--pine);
+  }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .how{
+    background:var(--pine);
+    border-radius:28px;
+    color:var(--white);
+  }
+  .how .section-head h2{color:var(--white);}
+  .how .section-head p{color:#C9D4CC;}
+  .how-steps{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+  }
+  @media(max-width:820px){ .how-steps{grid-template-columns:1fr;} }
+  .how-step .step-num{
+    font-family:'Fraunces', serif;
+    font-size:2rem;
+    color:var(--ochre);
+    display:block;
+    margin-bottom:10px;
+  }
+  .how-step h3{color:var(--white); font-size:1.1rem; margin-bottom:8px;}
+  .how-step p{color:#C9D4CC; font-size:0.95rem;}
+  .areas{
+    margin-top:44px;
+    padding-top:28px;
+    border-top:1px solid rgba(255,255,255,0.18);
+    font-size:0.95rem;
+    color:#C9D4CC;
+  }
+  .areas strong{color:var(--white); font-weight:600;}
+
+  /* ---------- PRICING ---------- */
+  .pricing-table{
+    background:var(--white);
+    border-radius:20px;
+    border:1px solid rgba(30,58,52,0.1);
+    overflow:hidden;
+  }
+  .price-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 26px;
+    border-bottom:1px solid rgba(30,58,52,0.08);
+    gap:20px;
+  }
+  .price-row:last-child{border-bottom:none;}
+  .price-row .label{font-weight:600; color:var(--pine);}
+  .price-row .desc{font-size:0.88rem; color:var(--ink-soft); margin-top:3px;}
+  .price-row .amount{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    color:var(--ochre);
+    white-space:nowrap;
+  }
+  .price-note{
+    margin-top:18px;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--paper-2);
+    border-radius:28px;
+    text-align:center;
+  }
+  .contact .section-head{margin:0 auto 30px; text-align:center;}
+  .contact-actions{
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .contact-detail{
+    margin-top:30px;
+    font-size:0.95rem;
+    color:var(--ink-soft);
+  }
+
+  footer{
+    padding:36px 0 50px;
+    text-align:center;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="nav">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 20C12 15.6 15.4 12 20 12C22.2 12 24.2 12.9 25.6 14.4C27 12.9 29 12 31.2 12C35.6 12 39 15.6 39 20C39 24.4 35.6 28 31.2 28C29 28 27 27.1 25.6 25.6C24.2 27.1 22.2 28 20 28C15.4 28 12 24.4 12 20Z" stroke="#1E3A34" stroke-width="2" fill="none" transform="translate(-4,0) scale(0.82)" />
+        <circle cx="14.5" cy="20" r="6.2" fill="#B98B2E"/>
+        <circle cx="25.5" cy="20" r="6.2" fill="none" stroke="#1E3A34" stroke-width="2"/>
+      </svg>
+      Inclusive Minds
+    </div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#specialisations">Specialisations</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Rates</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Get in touch</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <h1>Learning support built around your child, not the other way around.</h1>
+      <p class="lede">One-on-one tutoring for children with special educational needs, based in Houghton and serving families across Johannesburg — in your home or online.</p>
+      <div class="actions">
+        <a class="btn-primary" href="#contact">Book a first session</a>
+        <a class="btn-secondary" href="#specialisations">See what I focus on</a>
+      </div>
+      <div class="tagline-strip">
+        <span><span class="dot"></span> Degree in Special Needs Education</span>
+        <span><span class="dot"></span> 6 years' experience</span>
+        <span><span class="dot"></span> From age 4</span>
+      </div>
+    </div>
+    <div class="hero-mark">
+      <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="150" cy="150" r="148" fill="#E4E9DC"/>
+        <path d="M60 150C60 111.3 91.3 80 130 80C150 80 167.8 88.7 180 102.6C192.2 88.7 210 80 230 80C268.7 80 300 111.3 300 150C300 188.7 268.7 220 230 220C210 220 192.2 211.3 180 197.4C167.8 211.3 150 220 130 220C91.3 220 60 188.7 60 150Z" fill="none" stroke="#1E3A34" stroke-width="4" transform="translate(-15,0) scale(0.86)"/>
+        <circle cx="118" cy="150" r="34" fill="#B98B2E" opacity="0.9"/>
+        <circle cx="182" cy="150" r="34" fill="none" stroke="#5C7A99" stroke-width="4"/>
+      </svg>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="about" id="about">
+    <div class="wrap" style="padding:56px 28px;">
+      <div class="about-grid">
+        <div class="photo-slot">
+          <div class="frame">Photo of [Your Name]<br>here</div>
+          <p class="caption">[Your Name] — Founder &amp; Tutor, Inclusive Minds</p>
+        </div>
+        <div>
+          <h2 style="margin-bottom:18px;">About Inclusive Minds</h2>
+          <p>I started Inclusive Minds to give children with special educational needs the kind of individual attention that's hard to find in a special needs classroom of four to eight, or a mainstream classroom of thirty — sessions paced to how each child actually learns, while still supporting what they're covering at school for better mastery of the syllabus.</p>
+          <p>I work with children from as early as age 4, across homeschooling families, SEN schools, and mainstream schools across Johannesburg. I'm an inclusive educator, trained across Autism Spectrum Disorder, learning disabilities, hearing impairment, and braille literacy.</p>
+          <ul class="credentials">
+            <li>Degree in Special Needs Education</li>
+            <li>6 years' experience working with children with additional needs</li>
+            <li>Trained across ASD, learning disabilities, hearing impairment, and braille literacy</li>
+            <li>Police clearance on file, available on request</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section id="specialisations">
+    <div class="section-head">
+      <h2>Areas of focus</h2>
+      <p>Every child's needs are different, so sessions are planned individually rather than off a fixed curriculum.</p>
+    </div>
+    <div class="spec-grid">
+      <div class="spec-card">
+        <svg class="mark" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="17" stroke="#B98B2E" stroke-width="2.5"/><circle cx="19" cy="19" r="6" fill="#B98B2E"/></svg>
+        <h3>Autism Spectrum Disorder</h3>
+        <p>Structured, predictable sessions that build on communication, social, and sensory-aware learning strategies.</p>
+      </div>
+      <div class="spec-card">
+        <svg class="mark" viewBox="0 0 38 38" fill="none"><rect x="6" y="6" width="26" height="26" rx="6" stroke="#5C7A99" stroke-width="2.5"/></svg>
+        <h3>Learning Disabilities</h3>
+        <p>Support for dyslexia, dyscalculia, ADHD, and processing difficulties, using multisensory teaching methods.</p>
+      </div>
+      <div class="spec-card">
+        <svg class="mark" viewBox="0 0 38 38" fill="none"><path d="M6 19C6 11.8 11.8 6 19 6C26.2 6 32 11.8 32 19" stroke="#B98B2E" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h3>Hearing Impairment</h3>
+        <p>Visual and sign-supported learning methods, trained and ready from day one.</p>
+        <span class="spec-tag">By arrangement</span>
+      </div>
+      <div class="spec-card">
+        <svg class="mark" viewBox="0 0 38 38" fill="none"><circle cx="10" cy="10" r="3" fill="#5C7A99"/><circle cx="19" cy="10" r="3" fill="#5C7A99"/><circle cx="10" cy="19" r="3" fill="#5C7A99"/><circle cx="28" cy="19" r="3" fill="#5C7A99"/></svg>
+        <h3>Braille Literacy</h3>
+        <p>Tactile reading, writing, and numeracy support for learners who are blind or have low vision.</p>
+        <span class="spec-tag">By arrangement</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section id="testimonials">
+    <div class="section-head">
+      <h2>Testimonials</h2>
+      <p>Notes from parents, schools, and colleagues I've worked with directly.</p>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial-card">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 17V13C4 9.7 6.7 7 10 7V9.5C8.1 9.5 6.5 11.1 6.5 13H10V17H4Z" fill="#B98B2E"/><path d="M14 17V13C14 9.7 16.7 7 20 7V9.5C18.1 9.5 16.5 11.1 16.5 13H20V17H14Z" fill="#B98B2E"/></svg>
+        <p class="quote">[Add a recommendation from a parent about progress you've made with their child]</p>
+        <div class="attrib">— [Parent name / initials], parent of a Grade [X] learner</div>
+      </div>
+      <div class="testimonial-card">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 17V13C4 9.7 6.7 7 10 7V9.5C8.1 9.5 6.5 11.1 6.5 13H10V17H4Z" fill="#5C7A99"/><path d="M14 17V13C14 9.7 16.7 7 20 7V9.5C18.1 9.5 16.5 11.1 16.5 13H20V17H14Z" fill="#5C7A99"/></svg>
+        <p class="quote">[Add a recommendation from a school, therapist, or former employer]</p>
+        <div class="attrib">— [Name], [Role / School]</div>
+      </div>
+      <div class="testimonial-card">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 17V13C4 9.7 6.7 7 10 7V9.5C8.1 9.5 6.5 11.1 6.5 13H10V17H4Z" fill="#B98B2E"/><path d="M14 17V13C14 9.7 16.7 7 20 7V9.5C18.1 9.5 16.5 11.1 16.5 13H20V17H14Z" fill="#B98B2E"/></svg>
+        <p class="quote">[Add another recommendation — a second parent, or a note about your approach]</p>
+        <div class="attrib">— [Name]</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section id="services">
+    <div class="section-head">
+      <h2>What sessions look like</h2>
+      <p>Flexible formats to fit how — and where — your child learns best.</p>
+    </div>
+    <div class="services">
+      <div class="service-card">
+        <h3><span class="num">01</span> Homework &amp; academic support</h3>
+        <p>After-school help with homework, assignments, and exam preparation, aligned with what your child is covering at school. Progress notes shared with parents after each session.</p>
+      </div>
+      <div class="service-card">
+        <h3><span class="num">02</span> Homeschool tutoring</h3>
+        <p>Structured, CAPS-aligned lessons for homeschooling families, with an individualised learning plan built around your child's pace and goals.</p>
+      </div>
+      <div class="service-card">
+        <h3><span class="num">03</span> Parent consultations</h3>
+        <p>A dedicated session to talk through progress, set goals, and share strategies you can use with your child at home, between lessons.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="how" id="how">
+    <div class="wrap" style="padding:56px 28px;">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>Getting started is simple, and the first conversation costs nothing.</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step">
+          <span class="step-num">1</span>
+          <h3>Get in touch</h3>
+          <p>Tell me a bit about your child — age, school, and what kind of support you're looking for.</p>
+        </div>
+        <div class="how-step">
+          <span class="step-num">2</span>
+          <h3>Free short call</h3>
+          <p>A quick conversation to understand your child's needs and agree on a plan before the first paid session.</p>
+        </div>
+        <div class="how-step">
+          <span class="step-num">3</span>
+          <h3>Sessions begin</h3>
+          <p>At your home or online, on a schedule that works for your family — with regular feedback along the way.</p>
+        </div>
+      </div>
+      <div class="areas">
+        <strong>Based in Houghton</strong> — sessions run online or as home visits across Johannesburg. Travel time is factored into the rate for each family, so just get in touch and we'll work it out together.
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section id="pricing">
+    <div class="section-head">
+      <h2>Rates</h2>
+      <p>Rates are discussed directly with each family, based on your child's needs and, for home visits, travel time. Packages are also available — email for details.</p>
+    </div>
+    <div class="pricing-table">
+      <div class="price-row">
+        <div>
+          <div class="label">First conversation</div>
+          <div class="desc">A short call to understand your child's needs — no cost, no obligation</div>
+        </div>
+        <div class="amount">Free</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="contact" id="contact">
+    <div class="wrap" style="padding:56px 28px;">
+      <div class="section-head">
+        <h2>Let's talk about your child</h2>
+        <p>Reach out for a free, no-obligation conversation about how I can help.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn-primary" href="mailto:inclusiveminds101@gmail.com">Email me</a>
+        <a class="btn-secondary" href="https://wa.me/27000000000">Message on WhatsApp</a>
+      </div>
+      <p class="contact-detail">Houghton, Johannesburg &nbsp;·&nbsp; [phone number] &nbsp;·&nbsp; inclusiveminds101@gmail.com</p>
+    </div>
+  </section>
+</div>
+
+<footer class="wrap">
+  Inclusive Minds — Special Needs Tutoring, Houghton, Johannesburg
+</footer>
+
+</body>
+</html>
